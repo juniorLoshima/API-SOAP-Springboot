@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.uvs.sn/courses" elementFormDefault="qualified">
-<element name="GetCourseDetailsRequest">
-	<complexType>
-			<sequence>
-				<element name="id" type="integer"></element>
-			</sequence>
-	</complexType>
-</element>
-<element name="GetCourseDetailsResponse">
-	<complexType>
-			<sequence>
-				<element name="CourseDetails" type="tns:CourseDetails"></element>
-			</sequence>
-	</complexType>
-</element>
-<element name="GetAllCourseDetailsResponse">
-	<complexType>
-			<sequence>
-				<element name="CourseDetails" type="tns:CourseDetails"></element>
-			</sequence>
-	</complexType>
-</element>
-	<complexType name="CourseDetails">
-		<sequence>
-				<element name="id" type="integer"/>
-				<element name="name" type="string"/>
-				<element name="description" type="string"/>
-		</sequence>
-	</complexType>
+<xs:element name="GetCourseDetailsRequest">
+	<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:integer"/>
+			</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="GetCourseDetailsResponse">
+	<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CourseDetails" type="tns:CourseDetails"/>
+			</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="GetAllCourseDetailsResponse">
+	<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CourseDetails" type="tns:CourseDetails"/>
+			</xs:sequence>
+	</xs:complexType>
+</xs:element>
+	<xs:complexType name="CourseDetails">
+		<xs:sequence>
+				<xs:element name="id" type="xs:integer"/>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
 
-</schema>
+</xs:schema>
