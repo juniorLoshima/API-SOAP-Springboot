@@ -1,1 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsRequest xmlns="https://formation.uvs.sn/courses" >
+	<id>123</id>
+</GetCourseDetailsRequest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsResponse xmlns="https://formation.uvs.sn/courses" >
+	<CourseDetails> 
+	<id>123</id>
+	<name>SOA</name>
+	<description>Architecture Orientée Service M2 IL</description>
+</CourseDetails>
+</GetCourseDetailsResponse>
