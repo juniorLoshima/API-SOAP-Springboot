@@ -7,8 +7,27 @@ targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.
 				<element name="id" type="integer"></element>
 			</sequence>
 	</complexType>
-
-
 </element>
+<element name="GetCourseDetailsResponse">
+	<complexType>
+			<sequence>
+				<element name="CourseDetails" type="tns:CourseDetails"></element>
+			</sequence>
+	</complexType>
+</element>
+<element name="GetAllCourseDetailsResponse">
+	<complexType>
+			<sequence>
+				<element name="CourseDetails" type="tns:CourseDetails"></element>
+			</sequence>
+	</complexType>
+</element>
+	<complexType name="CourseDetails">
+		<sequence>
+				<element name="id" type="integer"/>
+				<element name="name" type="string"/>
+				<element name="description" type="string"/>
+		</sequence>
+	</complexType>
 
 </schema>

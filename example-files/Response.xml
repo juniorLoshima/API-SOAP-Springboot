@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GetCourseDetailsResponse xmlns="https://formation.uvs.sn/courses" >
+<GetCourseDetailsResponse xmlns="https://formation.uvs.sn/courses" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="https://formation.uvs.sn/courses course-details.xsd">
 	<CourseDetails> 
 	<id>123</id>
 	<name>SOA</name>
