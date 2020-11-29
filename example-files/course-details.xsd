@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.uvs.sn/courses" elementFormDefault="qualified">
+<element name="GetCourseDetailsRequest">
+	<complexType>
+			<sequence>
+				<element name="id" type="integer"></element>
+			</sequence>
+	</complexType>
+
+
+</element>
+
+</schema>
