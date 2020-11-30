@@ -1,5 +1,7 @@
 package com.ws.soap.webservices.soapcoursemanagement.soap;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -10,6 +12,8 @@ import com.ws.soap.webservices.soapcoursemanagement.soap.bean.Course;
 import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
 
 import https.formation_uvs_sn.courses.CourseDetails;
+import https.formation_uvs_sn.courses.GetAllCourseDetailsRequest;
+import https.formation_uvs_sn.courses.GetAllCourseDetailsResponse;
 import https.formation_uvs_sn.courses.GetCourseDetailsRequest;
 import https.formation_uvs_sn.courses.GetCourseDetailsResponse;
 
@@ -29,22 +33,43 @@ public class CourseDetailsEndpoint {
 	@ResponsePayload
 	public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) 
 	{
-		
-		GetCourseDetailsResponse response = new GetCourseDetailsResponse();
-		
 		Course course = service.findById(request.getId());
-		
-		return mapCourse(response, course); 
+	
+		return mapCourseDetails(course);
 		
 	}
 
-		private GetCourseDetailsResponse mapCourse(GetCourseDetailsResponse response, Course course) {
-			CourseDetails courseDetails = new CourseDetails();
-			courseDetails.setId (course.getId());
-			courseDetails.setName (course.getName());
-			courseDetails.setDescription(course.getDescription());
-			response.setCourseDetails(courseDetails);
+	private GetCourseDetailsResponse mapCourseDetails(Course course) {
+		GetCourseDetailsResponse response = new GetCourseDetailsResponse();
+		response.setCourseDetails(mapCourse(course));
+		return response;
+	}
+	
+	private GetAllCourseDetailsResponse mapAllCourseDetails(List<Course> courses) {
+		GetAllCourseDetailsResponse response = new GetAllCourseDetailsResponse();
+		for(Course course:courses){
+			CourseDetails mapCourse = mapCourse(course);
+			response.getCourseDetails().add(mapCourse);
+			}
 			return response;
-		}
+	}
+	
+	private CourseDetails mapCourse(Course course) {
+		CourseDetails courseDetails = new CourseDetails();
+		courseDetails.setId (course.getId());
+		courseDetails.setName (course.getName());
+		courseDetails.setDescription(course.getDescription());
+		return courseDetails;
+	}
+	
+	@PayloadRoot(namespace="https://formation.uvs.sn/courses", localPart = "GetAllCourseDetailsRequest" )
+	@ResponsePayload
+	public GetAllCourseDetailsResponse processAllCourseDetailsRequest(@RequestPayload GetAllCourseDetailsRequest request) 
+	{
+		List<Course> courses = service.findAll();
+	
+		return mapAllCourseDetails(courses);
+		
+	}
 
 }

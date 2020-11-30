@@ -15,13 +15,6 @@ targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.
 			</xs:sequence>
 	</xs:complexType>
 </xs:element>
-<xs:element name="GetAllCourseDetailsResponse">
-	<xs:complexType>
-			<xs:sequence>
-				<xs:element name="CourseDetails" type="tns:CourseDetails"/>
-			</xs:sequence>
-	</xs:complexType>
-</xs:element>
 	<xs:complexType name="CourseDetails">
 		<xs:sequence>
 				<xs:element name="id" type="xs:int"/>
@@ -29,5 +22,18 @@ targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.
 				<xs:element name="description" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="GetAllCourseDetailsRequest">
+			 <xs:complexType>
+					
+			</xs:complexType>       
+		</xs:element>
+
+		<xs:element name="GetAllCourseDetailsResponse">
+			<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CourseDetails" type="tns:CourseDetails" maxOccurs="unbounded"/> 
+					</xs:sequence>
+			</xs:complexType>
+		</xs:element>
 
 </xs:schema>
