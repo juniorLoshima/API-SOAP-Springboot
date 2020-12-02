@@ -23,6 +23,8 @@ public class CourseDetailsService {
 		courses.add(course3);
 		Course course4 = new Course (4, "PO", "Projet Opérationnel");
 		courses.add(course4);
+		Course course5 = new Course (5, "SSI", "Sécurité de système d'information");
+		courses.add(course5);
 		}
 	
 	public Course findById(int id){
