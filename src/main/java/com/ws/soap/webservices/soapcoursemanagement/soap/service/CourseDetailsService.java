@@ -7,10 +7,15 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.ws.soap.webservices.soapcoursemanagement.soap.bean.Course;
+import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService.Status;
 
 @Component
 public class CourseDetailsService {
 
+	public enum Status
+	{
+		SUCCES,ECHEC;
+	}
 	private static List<Course> courses = new ArrayList<>();
 	
 	static {
@@ -41,7 +46,7 @@ public class CourseDetailsService {
 		return courses;
 	}
 	
-	public int deleteById(int id)
+	public Status deleteById(int id)
 	{
 	Iterator<Course> iterator = courses.iterator();
 	while (iterator.hasNext()){
@@ -49,10 +54,10 @@ public class CourseDetailsService {
 		if(course.getId()==id)
 		{
 		iterator.remove();
-		return 1;
+		return Status.SUCCES;
 		}
 		
 	}
-	return 0;
+	return Status.ECHEC;
 	}
 }

@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2020.12.02 à 12:14:28 PM UTC 
+// Généré le : 2020.12.02 à 12:38:14 PM UTC 
 //
 
 
@@ -10,6 +10,7 @@ package https.formation_uvs_sn.courses;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="status" type="{https://formation.uvs.sn/courses}Status"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -40,21 +41,30 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "DeleteCourseDetailsResponse")
 public class DeleteCourseDetailsResponse {
 
-    protected int status;
+    @XmlElement(required = true)
+    protected Status status;
 
     /**
      * Obtient la valeur de la propriété status.
      * 
+     * @return
+     *     possible object is
+     *     {@link Status }
+     *     
      */
-    public int getStatus() {
+    public Status getStatus() {
         return status;
     }
 
     /**
      * Définit la valeur de la propriété status.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Status }
+     *     
      */
-    public void setStatus(int value) {
+    public void setStatus(Status value) {
         this.status = value;
     }
 

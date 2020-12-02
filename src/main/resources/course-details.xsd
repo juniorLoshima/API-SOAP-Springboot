@@ -27,10 +27,17 @@ targetNamespace="https://formation.uvs.sn/courses" xmlns:tns="https://formation.
 	        <xs:complexType>
 				<xs:sequence>
 				    <!-- Une suppression effectuée avec succes -->
-					<xs:element name="status" type="xs:int"/>
+					<xs:element name="status" type="tns:Status"/>
 				</xs:sequence>
 	    </xs:complexType>
         </xs:element>
+        
+        <xs:simpleType name="Status">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value ="SUCCES"/>
+				<xs:enumeration value ="ECHEC"/>
+			</xs:restriction>
+		</xs:simpleType>
 
 	<xs:complexType name="CourseDetails">
 		<xs:sequence>

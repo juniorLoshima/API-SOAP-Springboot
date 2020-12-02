@@ -10,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.ws.soap.webservices.soapcoursemanagement.soap.bean.Course;
 import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
+import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService.Status;
 
 import https.formation_uvs_sn.courses.CourseDetails;
 import https.formation_uvs_sn.courses.DeleteCourseDetailsRequest;
@@ -78,11 +79,19 @@ public class CourseDetailsEndpoint {
 	@ResponsePayload 
 	public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) 
 	{
-		int status = service.deleteById(request.getId());
+		Status status = service.deleteById(request.getId());
 		DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
-		response.setStatus(status);
+		response.setStatus(mapStatus(status));
 		return response;
 		
+	}
+
+	private https.formation_uvs_sn.courses.Status mapStatus(Status status) {
+		
+		if(status==Status.ECHEC)
+			
+			return https.formation_uvs_sn.courses.Status.ECHEC;
+		return https.formation_uvs_sn.courses.Status.SUCCES;
 	}
 
 }

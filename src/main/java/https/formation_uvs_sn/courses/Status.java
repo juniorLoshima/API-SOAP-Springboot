@@ -8,32 +8,38 @@
 
 package https.formation_uvs_sn.courses;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour anonymous complex type.
+ * <p>Classe Java pour Status.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
- * 
+ * <p>
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;simpleType name="Status">
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *     &lt;enumeration value="SUCCES"/>
+ *     &lt;enumeration value="ECHEC"/>
+ *   &lt;/restriction>
+ * &lt;/simpleType>
  * </pre>
  * 
- * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "GetAllCourseDetailsRequest")
-public class GetAllCourseDetailsRequest {
+@XmlType(name = "Status")
+@XmlEnum
+public enum Status {
 
+    SUCCES,
+    ECHEC;
+
+    public String value() {
+        return name();
+    }
+
+    public static Status fromValue(String v) {
+        return valueOf(v);
+    }
 
 }
