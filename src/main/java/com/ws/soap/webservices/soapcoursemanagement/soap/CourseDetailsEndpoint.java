@@ -12,6 +12,8 @@ import com.ws.soap.webservices.soapcoursemanagement.soap.bean.Course;
 import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
 
 import https.formation_uvs_sn.courses.CourseDetails;
+import https.formation_uvs_sn.courses.DeleteCourseDetailsRequest;
+import https.formation_uvs_sn.courses.DeleteCourseDetailsResponse;
 import https.formation_uvs_sn.courses.GetAllCourseDetailsRequest;
 import https.formation_uvs_sn.courses.GetAllCourseDetailsResponse;
 import https.formation_uvs_sn.courses.GetCourseDetailsRequest;
@@ -69,6 +71,17 @@ public class CourseDetailsEndpoint {
 		List<Course> courses = service.findAll();
 	
 		return mapAllCourseDetails(courses);
+		
+	}
+		
+	@PayloadRoot(namespace = "https://formation.uvs.sn/courses", localPart = "DeleteCourseDetailsRequest")
+	@ResponsePayload 
+	public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) 
+	{
+		int status = service.deleteById(request.getId());
+		DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
+		response.setStatus(status);
+		return response;
 		
 	}
 

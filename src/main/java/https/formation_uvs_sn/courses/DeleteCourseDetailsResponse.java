@@ -23,6 +23,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -31,9 +34,28 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "GetAllCourseDetailsRequest")
-public class GetAllCourseDetailsRequest {
+@XmlType(name = "", propOrder = {
+    "status"
+})
+@XmlRootElement(name = "DeleteCourseDetailsResponse")
+public class DeleteCourseDetailsResponse {
 
+    protected int status;
+
+    /**
+     * Obtient la valeur de la propriété status.
+     * 
+     */
+    public int getStatus() {
+        return status;
+    }
+
+    /**
+     * Définit la valeur de la propriété status.
+     * 
+     */
+    public void setStatus(int value) {
+        this.status = value;
+    }
 
 }

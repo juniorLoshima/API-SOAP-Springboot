@@ -23,6 +23,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -31,9 +34,28 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "GetAllCourseDetailsRequest")
-public class GetAllCourseDetailsRequest {
+@XmlType(name = "", propOrder = {
+    "id"
+})
+@XmlRootElement(name = "DeleteCourseDetailsRequest")
+public class DeleteCourseDetailsRequest {
 
+    protected int id;
+
+    /**
+     * Obtient la valeur de la propriété id.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Définit la valeur de la propriété id.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
 
 }
