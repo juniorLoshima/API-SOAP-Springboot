@@ -20,7 +20,7 @@ public class CourseDetailsService {
 	
 	static {
 		
-		Course course1 = new Course(1, "Ethique d'entreprise", "Autoformation");
+		Course course1 = new Course (1, "Ethique d'entreprise", "Autoformation");
 		courses.add(course1);
 		Course course2 = new Course (2, "CSI", "Conception Système Intelligent");
 		courses.add(course2);
@@ -30,6 +30,7 @@ public class CourseDetailsService {
 		courses.add(course4);
 		Course course5 = new Course (5, "SSI", "Sécurité de système d'information");
 		courses.add(course5);
+		
 		}
 	
 	public Course findById(int id){

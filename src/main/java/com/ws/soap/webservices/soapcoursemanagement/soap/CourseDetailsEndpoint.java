@@ -9,6 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.ws.soap.webservices.soapcoursemanagement.soap.bean.Course;
+import com.ws.soap.webservices.soapcoursemanagement.soap.exception.CourseNotFoundException;
 import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService;
 import com.ws.soap.webservices.soapcoursemanagement.soap.service.CourseDetailsService.Status;
 
@@ -37,6 +38,8 @@ public class CourseDetailsEndpoint {
 	public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetCourseDetailsRequest request) 
 	{
 		Course course = service.findById(request.getId());
+		if (course==null)
+			throw new CourseNotFoundException("Le cours ayant l'Id " +request.getId()+ " n'existe pas");
 	
 		return mapCourseDetails(course);
 		
