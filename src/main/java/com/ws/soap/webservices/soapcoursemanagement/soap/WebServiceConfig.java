@@ -77,7 +77,7 @@ public XwsSecurityInterceptor  securityInterceptor()
 @Bean
 public SimplePasswordValidationCallbackHandler callbackHandler() {
 	SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
-	handler.setUsersMap(Collections.singletonMap("user", "password"));
+	handler.setUsersMap(Collections.singletonMap("junior", "loshima"));
 	return handler;
 }
 
