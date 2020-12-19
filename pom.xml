@@ -42,6 +42,22 @@
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.ws/spring-ws-security -->
+		<dependency>
+		    <groupId>org.springframework.ws</groupId>
+		    <artifactId>spring-ws-security</artifactId>
+		</dependency>	
+		<dependency>
+		    <groupId>com.sun.xml.wss</groupId>
+		    <artifactId>xws-security</artifactId>
+		    <version>3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -50,10 +66,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- JAXB2 Maven Plugin-->
-			<!-- XSD Source Folder-->
-			<!-- Java Object Source Folder-->
-			<!-- Clear folder -> false -->
 			<plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>jaxb2-maven-plugin</artifactId>
